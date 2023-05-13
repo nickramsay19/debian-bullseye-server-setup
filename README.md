@@ -1,4 +1,4 @@
-# debian-bullseye-server-setup
+# sh-debian-bullseye-server-setup
 
 ```sh
 ssh root@<ADDRESS>
