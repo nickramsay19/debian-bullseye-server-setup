@@ -22,7 +22,7 @@ sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config # remov
 systemctl restart sshd # must restart for changes to take effect
 
 # --- LOCAL ENVIRONMENT CONFIGURATION ---
-mkdir -p /home/server
+mkdir -p /home/server # just in case
 
 # install git
 sudo apt update
@@ -32,17 +32,11 @@ sudo apt install git
 git clone --recurse-submodules https://github.com/nickramsay19/.vim /home/server/.vim
 
 # move our bashrc to the home for later
-# sudo -i will override /home/.bashrc so append our .bashrc settings later
-# first move .bashrc-extra into /home to allow us to read from it without sudo
-mv -f /root/debian-bullseye-server-setup/.bashrc-extra /home/server/.bashrc-extra
+sudo cp /home/server/.bashrc /home/server/.bashrc.bak # backup
+sudo cat /root/debian-bullseye-server-setup/.bashrc-extra >> /home/server/.bashrc # append to the generated (by sudo -i) bashrc
 
-# setup new user shell w/ -i
-sudo -i -u server bash << EOF
-    cd /home/server/ # just to be sure
+# clean up
+sudo rm -rf /root/debian-bullseye-server-setup
 
-    # setup bash config
-    sudo cp /home/server/.bashrc /home/server/.bashrc.bak # backup 
-    sudo cat /home/server/.bashrc-extra >> /home/server/.bashrc # append to the generated (by sudo -i) bashrc
-    sudo rm /home/server/.bashrc-extra # clean up
-EOF
-
+# start a new session logged into safe user
+su -l server
