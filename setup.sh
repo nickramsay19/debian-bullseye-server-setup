@@ -41,8 +41,8 @@ sudo -i -u server bash << EOF
     cd /home/server/ # just to be sure
 
     # setup bash config
-    sudo cp /home/.bashrc /home/.bashrc.bak # backup 
-    sudo cat /home/.bashrc-extra >> /home/.bashrc # append to the generated (by sudo -i) bashrc
-    sudo rm /home/.bashrc-extra # clean up
+    sudo cp /home/server/.bashrc /home/server/.bashrc.bak # backup 
+    sudo cat /home/server/.bashrc-extra >> /home/server/.bashrc # append to the generated (by sudo -i) bashrc
+    sudo rm /home/server/.bashrc-extra # clean up
 EOF
 
