@@ -5,6 +5,7 @@ ssh root@<ADDRESS>
 sudo apt update
 sudo apt install git
 git clone https://github.com/nickramsay19/debian-bullseye-server-setup.git 
+cd debian-bullseye-server-setup
 sh setup.sh
 ```
 
