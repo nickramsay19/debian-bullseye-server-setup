@@ -4,7 +4,7 @@ alias ls="ls -A1L --color=auto" # print 1 per line, hidden files, only file name
 alias mv="mv -i" # safe move to prevent overrides
 alias rm="rm -d" # allow allow empty dir deletion by default
 alias ps="ps -al" # one per line
-alias g="git
+alias g="git"
 
 # --- UTILITIES ---
 # md - mkdir and cd into it
