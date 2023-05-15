@@ -13,7 +13,6 @@ fi
 
 # setup a non-root user
 sudo adduser server # debian comes with adduser installed
-sudo usermod -aG sudo server
 
 # now we have a safer user to login with
 # we now disable root login through ssh
