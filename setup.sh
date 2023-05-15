@@ -14,6 +14,22 @@ fi
 # setup a non-root user
 sudo adduser server # debian comes with adduser installed
 
+# edit sudoers file
+sudo cat <<- EOF >> /etc/sudoers
+
+# custom config
+Defaults        editor=/usr/bin/vim
+Defaults        rootpw
+Defaults        setenv
+Defaults        insults
+
+# extra security
+Defaults        requiretty 
+Defaults        use_pty
+Defaults        passwd_tries=2
+Defaults        passwd_timeout=5
+EOF
+
 # now we have a safer user to login with
 # we now disable root login through ssh
 cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak # backup current sshd_config
