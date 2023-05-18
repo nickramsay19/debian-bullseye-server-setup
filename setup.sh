@@ -13,14 +13,16 @@ fi
 
 # setup a non-root user
 sudo adduser server # debian comes with adduser installed
+sudo usermod -aG sudo server
 
 # edit sudoers file
 sudo cat <<- EOF >> /etc/sudoers
 
 # custom config
 Defaults        editor=/usr/bin/vim
-Defaults        rootpw
-Defaults        setenv
+Defaults        rootpw # require root user passwd on sudo (not curr user)
+Defaults        setenv # allow disabling env_reset via -E
+Defaults        shell_noargs # defaults to -s 
 Defaults        insults
 
 # extra security
