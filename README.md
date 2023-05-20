@@ -22,3 +22,11 @@ git clone --branch dev https://github.com/nickramsay19/debian-bullseye-server-se
 cd debian-bullseye-server-setup
 sh setup.sh
 ```
+
+## Backlog
+* fix LICENSE.md 
+* add ```sh
+    PasswordAuthentication no
+    ChallengeResponseAuthentication no
+    ```
+    to `/etc/ssh/sshd_config`
