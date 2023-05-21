@@ -24,7 +24,6 @@ sh setup.sh
 ```
 
 ## Backlog
-* fix LICENSE.md 
 * add ```sh
     PasswordAuthentication no
     ChallengeResponseAuthentication no
